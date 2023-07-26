@@ -1,7 +1,5 @@
 FROM ubuntu:jammy
 
-LABEL version="1.0"
-
 RUN apt update
 RUN apt install --yes --quiet curl inotify-tools
 

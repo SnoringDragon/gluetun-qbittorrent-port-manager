@@ -10,9 +10,6 @@ forwarded_port file created by [Gluetun](https://github.com/qdm12/gluetun/) and 
 ## Setup
 First, ensure you are able to successfully connect qbittorrent to the forwarded port manually (can be seen by a green globe at the bottom of the WebUI).
 
-Next, download the github repo `https://github.com/SnoringDragon/gluetun-qbittorrent-port-manager.git` to the system you will install it on and 
-build it with `docker build -t gluetun-qbittorrent-port-manager .`
-
 Then add a mounted volume to [Gluetun](https://github.com/qdm12/gluetun/) (e.g. /yourfolder:/tmp/gluetun).
 
 Finally, add the following snippet to your `docker-compose.yml`, substituting the default values for your own.
@@ -21,7 +18,7 @@ Finally, add the following snippet to your `docker-compose.yml`, substituting th
 ...
 
   gluetun-qbittorrent-port-manager:
-    image: gluetun-qbittorrent-port-manager
+    image: snoringdragon/gluetun-qbittorrent-port-manager:latest
     restart: unless-stopped
     volumes:
       - /yourfolder:/tmp/gluetun #Set "yourfolder" to the same directory you used for Gluetun
