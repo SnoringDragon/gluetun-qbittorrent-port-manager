@@ -1,0 +1,13 @@
+gluetun-qbittorrent-port-manager:
+  image: snoringdragon/gluetun-qbittorrent-port-manager:latest
+  restart: unless-stopped
+  volumes:
+    - /yourfolder:/tmp/gluetun #Set "yourfolder" to the same directory you used for Gluetun
+  network_mode: "service: gluetun"
+  environment:
+    QBITTORRENT_SERVER: localhost # IP Address of qbittorrent
+    QBITTORRENT_PORT: 8080
+    QBITTORRENT_USER: admin # username
+    QBITTORRENT_PASS: adminadmin # password
+    PORT_FORWARDED: /tmp/gluetun/forwarded_port
+    HTTP_S: http # Select 'http' or 'https' depending on if you use certificates.

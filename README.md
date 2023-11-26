@@ -12,23 +12,4 @@ First, ensure you are able to successfully connect qbittorrent to the forwarded 
 
 Then add a mounted volume to [Gluetun](https://github.com/qdm12/gluetun/) (e.g. /yourfolder:/tmp/gluetun).
 
-Finally, add the following snippet to your `docker-compose.yml`, substituting the default values for your own.
-
-```yml
-...
-
-  gluetun-qbittorrent-port-manager:
-    image: snoringdragon/gluetun-qbittorrent-port-manager:latest
-    restart: unless-stopped
-    volumes:
-      - /yourfolder:/tmp/gluetun #Set "yourfolder" to the same directory you used for Gluetun
-    network_mode: "service: gluetun"
-    environment:
-      QBITTORRENT_SERVER: localhost
-      QBITTORRENT_PORT: 8080
-      QBITTORRENT_USER: admin
-      QBITTORRENT_PASS: adminadmin
-      PORT_FORWARDED: /tmp/gluetun/forwarded_port
-
-...
-```
+Finally, insert the template in `docker-compose.yml` into your docker-compose containing gluetun, substituting the default values for your own.
