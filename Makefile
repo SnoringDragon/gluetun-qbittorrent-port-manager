@@ -1,5 +1,4 @@
-NAME = gluetun-qbittorrent-port-manager
-USER = snoringdragon
+NAME = snoringdragon/luetun-qbittorrent-port-manager
 VERSION = `cat version`
 
 build: Dockerfile start.sh
@@ -7,4 +6,4 @@ build: Dockerfile start.sh
 
 push: Dockerfile start.sh version .secret
 	cat .secret | docker login -u snoringdragon --password-stdin
-	docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le -t $(USER)/$(NAME):$(VERSION) -t $(USER)/$(NAME):latest --label "version=$(VERSION)" --push .
+	docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le -t $(NAME):$(VERSION) -t $(NAME):latest --label "version=$(VERSION)" --push .
