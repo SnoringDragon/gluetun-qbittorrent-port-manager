@@ -1,7 +1,7 @@
-FROM ubuntu:jammy
+FROM alpine:latest
 
-RUN apt update
-RUN apt install --yes --quiet curl inotify-tools
+RUN apk update
+RUN apk add --no-cache curl inotify-tools bash
 
 ENV QBITTORRENT_SERVER=localhost
 ENV QBITTORRENT_PORT=8080
